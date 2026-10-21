@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "artifact": "feedback",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "items": [
+    {
+      "id": "FB-001",
+      "source": "",
+      "received": "",
+      "from_stakeholder_id": "",
+      "raw_text": "",
+      "kind": "clarification | change_request | new_requirement | conflict | approval | rejection",
+      "targets": [
+        ""
+      ],
+      "disposition": "accepted | rejected | deferred | needs_clarification",
+      "rationale": "",
+      "applied_in": {
+        "artifact": "",
+        "version": 1
+      }
+    }
+  ],
+  "approvals": [
+    {
+      "stakeholder_ids": [
+        ""
+      ],
+      "scope": "acceptance_requirements | all",
+      "decision": "approved | disapproved",
+      "date": "",
+      "conditions": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

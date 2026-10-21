@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "artifact": "requirements",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "",
+      "phase_id": "",
+      "category": "",
+      "kind": "performance | constraint",
+      "threshold": null,
+      "goal": null,
+      "unit": "",
+      "conditions": "",
+      "rationale": "",
+      "sources": {
+        "stakeholder_ids": [
+          ""
+        ],
+        "scenario_ids": [
+          ""
+        ],
+        "interface_ids": [
+          ""
+        ],
+        "objective_ids": [
+          ""
+        ],
+        "mission_ids": [
+          ""
+        ]
+      },
+      "qualification_method": "demonstration | analysis_simulation | inspection | instrumented_test",
+      "tbd": false,
+      "status": "proposed | agreed"
+    }
+  ],
+  "partition_notes": [
+    {
+      "phase_id": "",
+      "group": "",
+      "status": "n/a",
+      "reason": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

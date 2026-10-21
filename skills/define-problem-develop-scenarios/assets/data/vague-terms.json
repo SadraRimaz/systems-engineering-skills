@@ -1,0 +1,5 @@
+{
+  "vague_verbs": ["maximize", "minimize", "accommodate", "optimize", "support", "handle", "facilitate", "enable"],
+  "vague_adjectives": ["adaptable", "adequate", "easy", "flexible", "rapid", "robust", "sufficient", "supportable", "user-friendly", "fast", "quick", "efficient", "intuitive", "seamless", "reasonable", "appropriate", "minimal", "significant", "scalable", "modern"],
+  "placeholders": ["tbd", "tbr", "etc", "and so on", "as needed", "as appropriate"]
+}

@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Concept Brief",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "raw_idea": {
+      "type": "string",
+      "minLength": 1
+    },
+    "working_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "problem_statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mission_objectives": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "larger_purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value_proposition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain_profile": {
+      "type": "object",
+      "properties": {
+        "sector": {
+          "type": "string",
+          "minLength": 1
+        },
+        "glossary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "baseline_term": {
+                "type": "string",
+                "minLength": 1
+              },
+              "domain_term": {
+                "type": "string",
+                "minLength": 1
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "baseline_term",
+              "domain_term"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "sector",
+        "glossary"
+      ],
+      "additionalProperties": false
+    },
+    "system_of_interest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "black_box_description": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "name",
+        "black_box_description"
+      ],
+      "additionalProperties": false
+    },
+    "boundary_hypothesis": {
+      "type": "object",
+      "properties": {
+        "inside": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "outside": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "relation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "name",
+              "relation"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "unknown": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "item": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "item",
+              "owner"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "inside",
+        "outside",
+        "unknown"
+      ],
+      "additionalProperties": false
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "non_goals": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "day_in_the_life": {
+      "type": "string",
+      "minLength": 1
+    },
+    "solution_bias_flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "challenge": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resolution": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "statement",
+          "challenge",
+          "resolution"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ISS-\\d{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "TBD",
+              "TBR",
+              "question"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "kind",
+          "owner",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-\\d{3}$"
+          },
+          "date": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "decision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "raw_idea",
+    "working_title",
+    "problem_statement",
+    "mission_objectives",
+    "larger_purpose",
+    "value_proposition",
+    "domain_profile",
+    "system_of_interest",
+    "boundary_hypothesis",
+    "constraints",
+    "assumptions",
+    "non_goals",
+    "day_in_the_life",
+    "solution_bias_flags",
+    "open_issues",
+    "decisions_log"
+  ],
+  "additionalProperties": false
+}

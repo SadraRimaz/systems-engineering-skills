@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "artifact": "boundary",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "external_systems": [
+    {
+      "id": "EXT-001",
+      "name": "",
+      "kind": "external | enabling | context",
+      "legacy": false,
+      "phase_ids": [
+        ""
+      ],
+      "role": ""
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "IF-001",
+      "phase_id": "",
+      "external_id": "",
+      "direction": "input | output | control",
+      "item": "",
+      "item_kind": "data | energy | matter"
+    }
+  ],
+  "controls": [
+    {
+      "id": "CTL-001",
+      "name": "",
+      "kind": "regulation | policy | standard | constraint",
+      "applies_to_phases": [
+        ""
+      ],
+      "source_external_id": ""
+    }
+  ],
+  "boundary_decisions": [
+    {
+      "id": "BD-001",
+      "decision": "",
+      "decided_by": "",
+      "implication": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "artifact": "feasibility-plan",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "feasibility_questions": [
+    {
+      "id": "FQ-001",
+      "question": "",
+      "requirement_ids": [
+        ""
+      ],
+      "concern": "conflict | demanding | unproven | cost | schedule",
+      "priority": "low | medium | high"
+    }
+  ],
+  "analyses": [
+    {
+      "id": "AN-001",
+      "name": "",
+      "kind": "performance | cost | schedule | ility | environment | other",
+      "question_ids": [
+        ""
+      ],
+      "method": "",
+      "inputs": [
+        ""
+      ],
+      "parameter_variation": "",
+      "deliverable": ""
+    }
+  ],
+  "prototype_tasks": [
+    {
+      "id": "PT-001",
+      "name": "",
+      "kind": "throwaway | evolutionary",
+      "fidelity": "paper | mockup | subscale | working",
+      "learns": [
+        ""
+      ],
+      "question_ids": [
+        ""
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "action": ""
+        }
+      ],
+      "effort": "",
+      "owner": "",
+      "depends_on": [
+        ""
+      ]
+    }
+  ],
+  "usability_tests": [
+    {
+      "id": "UT-001",
+      "prototype_id": "",
+      "task_scenario_ids": [
+        ""
+      ],
+      "user_segments": [
+        {
+          "domain_knowledge": "low | medium | high",
+          "computer_experience": "low | medium | high",
+          "system_experience": "low | medium | high",
+          "sample_size": 1
+        }
+      ],
+      "metrics": [
+        {
+          "element": "learnability | efficiency | memorability | error_rate | satisfaction",
+          "measure": "",
+          "target": ""
+        }
+      ]
+    }
+  ],
+  "elicitation_sessions": [
+    {
+      "id": "ES-001",
+      "method": "interview | facilitated_group | observation | questionnaire",
+      "participants": [
+        ""
+      ],
+      "purpose": "",
+      "question_ids": [
+        ""
+      ]
+    }
+  ],
+  "decision_criteria": [
+    {
+      "question_id": "",
+      "feasible_if": "",
+      "infeasible_if": "",
+      "change_requirement_if": ""
+    }
+  ],
+  "results": [
+    {
+      "ref_id": "",
+      "status": "pending | done",
+      "summary": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

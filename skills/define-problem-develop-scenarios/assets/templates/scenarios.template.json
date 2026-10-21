@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "artifact": "scenarios",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "mission_requirements": [
+    {
+      "id": "MSN-001",
+      "statement": "",
+      "measure": "",
+      "stakeholder_ids": [
+        ""
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SCN-001",
+      "phase_id": "",
+      "stakeholder_ids": [
+        ""
+      ],
+      "kind": "",
+      "title": "",
+      "goal": "",
+      "preconditions": [
+        ""
+      ],
+      "environment_conditions": [
+        ""
+      ],
+      "user_story": {
+        "as_a": "",
+        "i_want": "",
+        "so_that": ""
+      },
+      "exchanges": [
+        {
+          "from": "",
+          "to": "",
+          "item": "",
+          "item_kind": "data | energy | matter",
+          "note": ""
+        }
+      ],
+      "variations": [
+        ""
+      ]
+    }
+  ],
+  "coverage_notes": [
+    {
+      "phase_id": "",
+      "kind": "",
+      "status": "n/a",
+      "reason": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "artifact": "objectives",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "hierarchies": [
+    {
+      "id": "OBJ-H-H1",
+      "name": "",
+      "scope_phase_id": "",
+      "stakeholder_ids": [
+        ""
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "OBJ-001",
+      "hierarchy_id": "",
+      "parent_id": null,
+      "name": "",
+      "level": "fundamental | value | measure",
+      "design_independent": false,
+      "measure_kind": "effectiveness | performance",
+      "unit": "",
+      "direction": "increase | decrease",
+      "threshold": 0,
+      "goal": 0,
+      "weight": 0,
+      "value_curve": {
+        "shape": "linear | concave | convex | s_curve | piecewise",
+        "points": [
+          [
+            0
+          ]
+        ]
+      },
+      "conditions": [
+        ""
+      ],
+      "stakeholder_ids": [
+        ""
+      ],
+      "scenario_ids": [
+        ""
+      ],
+      "rationale": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "artifact": "stakeholders",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "stakeholders": [
+    {
+      "id": "STK-001",
+      "name": "",
+      "class": "",
+      "organization": "",
+      "represented_by": "",
+      "pays": false,
+      "needs_summary": "",
+      "objectives": [
+        ""
+      ],
+      "jurisdiction_constraints": [
+        ""
+      ],
+      "interaction_with_system": "",
+      "influence": "low | medium | high",
+      "evidence": ""
+    }
+  ],
+  "class_coverage": [
+    {
+      "class": "",
+      "status": "none",
+      "reason": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

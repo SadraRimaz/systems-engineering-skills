@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {"id": "io", "name": "Input / output"},
+    {"id": "system_wide", "name": "Technology and system-wide"},
+    {"id": "tradeoff", "name": "Trade-off"},
+    {"id": "qualification", "name": "Qualification"}
+  ],
+  "categories": [
+    {"id": "input", "group": "io", "name": "Input", "description": "What the system must receive, with performance or constraint aspects of each input.", "dimensions": ["accuracy of inputs", "quantity and rate", "timing and update frequency", "unexpected or undesired inputs and the required response", "bounds on expected inputs"]},
+    {"id": "output", "group": "io", "name": "Output", "description": "What the system must produce, with performance aspects of each output.", "dimensions": ["quality: accuracy, correctness, security", "quantity: intensity, throughput, coverage", "timing: response time, update frequency, availability"]},
+    {"id": "external_interface", "group": "io", "name": "External interface", "description": "Limits placed on receiving inputs and sending outputs by the external systems' interfaces.", "dimensions": ["required format", "timing constraints of the interface", "physical form or fit of the interface"]},
+    {"id": "functional", "name": "Functional", "group": "io", "description": "The few top-level functions that together transform all inputs into all outputs. Stated as outputs, not as design.", "dimensions": ["first-level partition of the system function"]},
+    {"id": "technology", "group": "system_wide", "name": "Technology", "description": "Constraints on technology or components, justified by compatibility or interoperability.", "dimensions": ["mandated standards or platforms", "compatibility with existing product line"]},
+    {"id": "quality", "group": "system_wide", "name": "Suitability and quality", "description": "System-wide qualities (the '-ilities') and physical characteristics.", "dimensions": ["usability", "weight, volume and fit", "survivability", "availability, reliability, maintainability", "supportability", "safety", "security", "trainability", "testability", "extensibility", "regulatory compliance"]},
+    {"id": "cost", "group": "system_wide", "name": "Cost", "description": "Cost limits per lifecycle phase.", "dimensions": ["development cost", "production cost", "deployment and training cost", "operating and maintenance cost", "retirement cost"]},
+    {"id": "schedule", "group": "system_wide", "name": "Schedule", "description": "Timing limits per lifecycle phase.", "dimensions": ["development period", "time per unit produced", "time to reach proficiency", "deployment period", "operational life"]},
+    {"id": "performance_tradeoff", "group": "tradeoff", "name": "Performance trade-off", "description": "How to compare two alternative designs on aggregate performance, from stakeholder values.", "dimensions": ["weights and value curves over performance measures"]},
+    {"id": "cost_tradeoff", "group": "tradeoff", "name": "Cost trade-off", "description": "How to compare two alternative designs on aggregate cost across phases and payers.", "dimensions": ["time value of money", "different payers in different phases"]},
+    {"id": "cost_performance_tradeoff", "group": "tradeoff", "name": "Cost-performance trade-off", "description": "How performance is traded against cost, ideally as willingness to pay.", "dimensions": ["willingness to pay per performance gain", "iso-value relationship"]},
+    {"id": "observance", "group": "qualification", "name": "Observance", "description": "Which qualification data is obtained for each input/output and system-wide requirement, and by which method.", "dimensions": ["demonstration", "analysis and simulation", "inspection", "instrumented test"]},
+    {"id": "verification", "group": "qualification", "name": "Verification", "description": "How qualification data will show the real system conforms to its design.", "dimensions": ["pass/fail criteria", "verification system and its own requirements"]},
+    {"id": "validation", "group": "qualification", "name": "Validation", "description": "How qualification data will show the real system satisfies the stakeholders' needs, traced to scenarios.", "dimensions": ["scenario-based tests", "validation system and its own requirements"]},
+    {"id": "acceptance", "group": "qualification", "name": "Acceptance", "description": "How qualification data will show the system is acceptable to the stakeholders, and who decides.", "dimensions": ["acceptance criteria", "acceptance decision makers"]}
+  ]
+}

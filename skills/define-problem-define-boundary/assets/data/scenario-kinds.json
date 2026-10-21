@@ -1,0 +1,10 @@
+[
+  {"id": "initialization", "name": "Initialization", "prompt": "How does the system start up or get set up for first use in this phase?"},
+  {"id": "steady_state", "name": "Normal steady-state operation", "prompt": "What does a typical, successful interaction look like in each standard operating mode and context?"},
+  {"id": "extremes", "name": "Extremes of operation", "prompt": "What happens at high and low peaks of load or demand from external systems?"},
+  {"id": "maintenance", "name": "Maintenance", "prompt": "How is the system inspected, diagnosed, repaired or serviced, and what continues to work meanwhile?"},
+  {"id": "resupply", "name": "Resupply", "prompt": "How are consumables, energy, data or materials replenished?"},
+  {"id": "failure_external", "name": "Reaction to failure of other systems", "prompt": "How should the system respond when an external or enabling system fails or behaves unexpectedly?"},
+  {"id": "failure_internal", "name": "Degraded operation from internal failure", "prompt": "When the system itself fails, how should the surrounding system degrade as gracefully as possible?"},
+  {"id": "shutdown", "name": "Shutdown and termination", "prompt": "How is the system stopped, put in a safe state and phased out of this phase?"}
+]

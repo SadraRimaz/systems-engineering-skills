@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+# project workspaces created by the skills
+sysreq/

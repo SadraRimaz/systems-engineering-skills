@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "artifact": "lifecycle",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "phases": [
+    {
+      "id": "LC-001",
+      "baseline_ref": "",
+      "domain_label": "",
+      "description": "",
+      "status": "active | not_applicable | merged",
+      "reason": "",
+      "merged_into": "",
+      "enabling_system": "",
+      "stakeholder_ids": [
+        ""
+      ],
+      "concurrency_notes": [
+        {
+          "with_phase": "",
+          "note": ""
+        }
+      ],
+      "key_risks_to_capture": [
+        ""
+      ],
+      "scenario_seeds": [
+        ""
+      ]
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

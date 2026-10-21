@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lifecycle Model",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "phases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^LC-\\d{3}$"
+          },
+          "baseline_ref": {
+            "type": "string",
+            "minLength": 1
+          },
+          "domain_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "active",
+              "not_applicable",
+              "merged"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "merged_into": {
+            "type": "string"
+          },
+          "enabling_system": {
+            "type": "string"
+          },
+          "stakeholder_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "concurrency_notes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "with_phase": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "note": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "with_phase",
+                "note"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "key_risks_to_capture": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "scenario_seeds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "baseline_ref",
+          "domain_label",
+          "description",
+          "status"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ISS-\\d{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "TBD",
+              "TBR",
+              "question"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "kind",
+          "owner",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-\\d{3}$"
+          },
+          "date": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "decision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "phases",
+    "open_issues",
+    "decisions_log"
+  ],
+  "additionalProperties": false
+}

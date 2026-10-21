@@ -1,0 +1,510 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Feasibility Analysis Plan",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "feasibility_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^FQ-\\d{3}$"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "concern": {
+            "enum": [
+              "conflict",
+              "demanding",
+              "unproven",
+              "cost",
+              "schedule"
+            ]
+          },
+          "priority": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "question",
+          "requirement_ids",
+          "concern",
+          "priority"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "analyses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^AN-\\d{3}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "performance",
+              "cost",
+              "schedule",
+              "ility",
+              "environment",
+              "other"
+            ]
+          },
+          "question_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "method": {
+            "type": "string",
+            "minLength": 1
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "parameter_variation": {
+            "type": "string"
+          },
+          "deliverable": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "question_ids",
+          "method",
+          "deliverable"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "prototype_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^PT-\\d{3}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "throwaway",
+              "evolutionary"
+            ]
+          },
+          "fidelity": {
+            "enum": [
+              "paper",
+              "mockup",
+              "subscale",
+              "working"
+            ]
+          },
+          "learns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "question_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "action": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "order",
+                "action"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "effort": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "fidelity",
+          "learns",
+          "question_ids",
+          "steps",
+          "effort",
+          "owner"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "usability_tests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^UT-\\d{3}$"
+          },
+          "prototype_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "task_scenario_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "user_segments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "domain_knowledge": {
+                  "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "computer_experience": {
+                  "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "system_experience": {
+                  "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                  ]
+                },
+                "sample_size": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              },
+              "required": [
+                "domain_knowledge",
+                "computer_experience",
+                "system_experience",
+                "sample_size"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "metrics": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "element": {
+                  "enum": [
+                    "learnability",
+                    "efficiency",
+                    "memorability",
+                    "error_rate",
+                    "satisfaction"
+                  ]
+                },
+                "measure": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "target": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "element",
+                "measure",
+                "target"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "prototype_id",
+          "task_scenario_ids",
+          "user_segments",
+          "metrics"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "elicitation_sessions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ES-\\d{3}$"
+          },
+          "method": {
+            "enum": [
+              "interview",
+              "facilitated_group",
+              "observation",
+              "questionnaire"
+            ]
+          },
+          "participants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "question_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "id",
+          "method",
+          "participants",
+          "purpose"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decision_criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feasible_if": {
+            "type": "string",
+            "minLength": 1
+          },
+          "infeasible_if": {
+            "type": "string",
+            "minLength": 1
+          },
+          "change_requirement_if": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "question_id",
+          "feasible_if",
+          "infeasible_if",
+          "change_requirement_if"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "pending",
+              "done"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "ref_id",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ISS-\\d{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "TBD",
+              "TBR",
+              "question"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "kind",
+          "owner",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-\\d{3}$"
+          },
+          "date": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "decision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "feasibility_questions",
+    "analyses",
+    "prototype_tasks",
+    "usability_tests",
+    "elicitation_sessions",
+    "decision_criteria",
+    "results",
+    "open_issues",
+    "decisions_log"
+  ],
+  "additionalProperties": false
+}

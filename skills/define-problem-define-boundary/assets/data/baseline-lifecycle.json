@@ -1,0 +1,58 @@
+[
+  {
+    "id": "development",
+    "name": "Development (design and integration)",
+    "description": "The system is designed, built up from components, integrated and qualified.",
+    "typical_enabling_system": "Development environment, tooling, test beds and the team that uses them",
+    "typical_stakeholder_classes": ["owner_bill_payer", "developer", "tester"],
+    "typical_risks": ["schedule and cost overrun", "requirements instability", "integration problems"]
+  },
+  {
+    "id": "production",
+    "name": "Manufacturing or production",
+    "description": "Units of the system are produced or assembled repeatedly to the qualified design.",
+    "typical_enabling_system": "Production line, supply chain, build and packaging process",
+    "typical_stakeholder_classes": ["producer", "owner_bill_payer", "tester"],
+    "typical_risks": ["scrap or defect rate", "supplier availability", "production cost"]
+  },
+  {
+    "id": "deployment",
+    "name": "Deployment",
+    "description": "The system is delivered, installed and brought into its operating environment.",
+    "typical_enabling_system": "Delivery, installation and rollout means",
+    "typical_stakeholder_classes": ["deployer", "operator", "user"],
+    "typical_risks": ["installation disruption", "environment mismatch", "rollback difficulty"]
+  },
+  {
+    "id": "training",
+    "name": "Training",
+    "description": "People who will operate, use, maintain or support the system are trained.",
+    "typical_enabling_system": "Training materials, trainers, simulators or practice environments",
+    "typical_stakeholder_classes": ["trainer", "operator", "user", "maintainer"],
+    "typical_risks": ["slow time to proficiency", "inconsistent skill levels"]
+  },
+  {
+    "id": "operations_support",
+    "name": "Operations, maintenance and support",
+    "description": "The system performs its mission while being operated, maintained, supplied and supported.",
+    "typical_enabling_system": "Operating environment, maintenance and support organization, supply channels",
+    "typical_stakeholder_classes": ["operator", "user", "maintainer", "sustainer", "victim", "owner_bill_payer"],
+    "typical_risks": ["failures in service", "availability shortfall", "environment extremes", "misuse"]
+  },
+  {
+    "id": "refinement",
+    "name": "Refinement (improvement and upgrade)",
+    "description": "The system is improved, extended or adapted to new needs and technologies during its life.",
+    "typical_enabling_system": "Upgrade process, change control and re-qualification means",
+    "typical_stakeholder_classes": ["product_improver", "owner_bill_payer", "developer", "operator"],
+    "typical_risks": ["incompatibility with existing units", "disruption of operations"]
+  },
+  {
+    "id": "retirement",
+    "name": "Retirement",
+    "description": "The system is withdrawn from service, removed, and disposed of or recycled.",
+    "typical_enabling_system": "Removal, data or material recovery and disposal process",
+    "typical_stakeholder_classes": ["decommissioner", "owner_bill_payer", "victim"],
+    "typical_risks": ["disposal cost", "regulatory obligations", "data or material hazards"]
+  }
+]

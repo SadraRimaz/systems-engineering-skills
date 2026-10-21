@@ -1,0 +1,15 @@
+[
+  {"id": "owner_bill_payer", "name": "Owner / bill payer", "prompt": "Who pays for the system, in which lifecycle phases, and what return do they expect? Different phases can have different payers."},
+  {"id": "developer", "name": "Developer", "prompt": "Who designs and integrates the system, and what do they need from requirements to work in parallel?"},
+  {"id": "producer", "name": "Producer / manufacturer", "prompt": "Who builds, produces or packages each unit, and with what constraints on process, volume or cost?"},
+  {"id": "tester", "name": "Tester / qualifier", "prompt": "Who verifies and validates the system, and what evidence will they need?"},
+  {"id": "deployer", "name": "Deployer", "prompt": "Who delivers, installs, rolls out or fields the system into its operating environment?"},
+  {"id": "trainer", "name": "Trainer", "prompt": "Who prepares people to use or support the system, and how fast must they reach proficiency?"},
+  {"id": "operator", "name": "Operator", "prompt": "Who runs the system day to day, and in what conditions and shifts?"},
+  {"id": "user", "name": "User", "prompt": "Who benefits directly from the system's outputs? Split users into groups that differ in needs, skills or abilities."},
+  {"id": "victim", "name": "Affected non-user (victim)", "prompt": "Who is exposed to the system's side effects or failures without choosing to use it?"},
+  {"id": "maintainer", "name": "Maintainer", "prompt": "Who diagnoses, repairs and services the system while it operates?"},
+  {"id": "sustainer", "name": "Sustainer", "prompt": "Who keeps the system supplied, supported and available over its life (logistics, support, vendors)?"},
+  {"id": "product_improver", "name": "Product improver", "prompt": "Who upgrades or extends the system after fielding, and what growth must it allow?"},
+  {"id": "decommissioner", "name": "Decommissioner", "prompt": "Who retires, removes or disposes of the system, and under what rules?"}
+]

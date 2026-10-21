@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "System Boundary Model",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "external_systems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^EXT-\\d{3}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "external",
+              "enabling",
+              "context"
+            ]
+          },
+          "legacy": {
+            "type": "boolean"
+          },
+          "phase_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "legacy",
+          "phase_ids",
+          "role"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^IF-\\d{3}$"
+          },
+          "phase_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "external_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "direction": {
+            "enum": [
+              "input",
+              "output",
+              "control"
+            ]
+          },
+          "item": {
+            "type": "string",
+            "minLength": 1
+          },
+          "item_kind": {
+            "enum": [
+              "data",
+              "energy",
+              "matter"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "phase_id",
+          "external_id",
+          "direction",
+          "item",
+          "item_kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^CTL-\\d{3}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "regulation",
+              "policy",
+              "standard",
+              "constraint"
+            ]
+          },
+          "applies_to_phases": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "source_external_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "applies_to_phases"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "boundary_decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^BD-\\d{3}$"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "decided_by": {
+            "type": "string",
+            "minLength": 1
+          },
+          "implication": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "decision",
+          "decided_by",
+          "implication"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ISS-\\d{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "TBD",
+              "TBR",
+              "question"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "kind",
+          "owner",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-\\d{3}$"
+          },
+          "date": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "decision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "external_systems",
+    "interfaces",
+    "controls",
+    "boundary_decisions",
+    "open_issues",
+    "decisions_log"
+  ],
+  "additionalProperties": false
+}

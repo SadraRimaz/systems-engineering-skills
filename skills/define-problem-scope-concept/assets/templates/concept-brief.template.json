@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "artifact": "concept-brief",
+    "version": 0,
+    "status": "draft",
+    "built_from": {},
+    "changelog": []
+  },
+  "raw_idea": "",
+  "working_title": "",
+  "problem_statement": "",
+  "mission_objectives": [
+    ""
+  ],
+  "larger_purpose": "",
+  "value_proposition": "",
+  "domain_profile": {
+    "sector": "",
+    "glossary": [
+      {
+        "baseline_term": "",
+        "domain_term": "",
+        "note": ""
+      }
+    ]
+  },
+  "system_of_interest": {
+    "name": "",
+    "black_box_description": ""
+  },
+  "boundary_hypothesis": {
+    "inside": [
+      ""
+    ],
+    "outside": [
+      {
+        "name": "",
+        "relation": ""
+      }
+    ],
+    "unknown": [
+      {
+        "item": "",
+        "owner": ""
+      }
+    ]
+  },
+  "constraints": [
+    ""
+  ],
+  "assumptions": [
+    ""
+  ],
+  "non_goals": [
+    ""
+  ],
+  "day_in_the_life": "",
+  "solution_bias_flags": [
+    {
+      "statement": "",
+      "challenge": "",
+      "resolution": ""
+    }
+  ],
+  "open_issues": [
+    {
+      "id": "ISS-001",
+      "text": "",
+      "kind": "TBD | TBR | question",
+      "owner": "",
+      "status": "open | closed",
+      "about": ""
+    }
+  ],
+  "decisions_log": [
+    {
+      "id": "DEC-001",
+      "date": "",
+      "decision": "",
+      "rationale": ""
+    }
+  ]
+}

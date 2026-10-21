@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stakeholder Register",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "stakeholders": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^STK-\\d{3}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "organization": {
+            "type": "string"
+          },
+          "represented_by": {
+            "type": "string"
+          },
+          "pays": {
+            "type": "boolean"
+          },
+          "needs_summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "objectives": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "jurisdiction_constraints": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "interaction_with_system": {
+            "type": "string",
+            "minLength": 1
+          },
+          "influence": {
+            "enum": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "class",
+          "pays",
+          "needs_summary",
+          "objectives",
+          "interaction_with_system",
+          "influence",
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "class_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "class": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "none"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "class",
+          "status",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ISS-\\d{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "TBD",
+              "TBR",
+              "question"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "kind",
+          "owner",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-\\d{3}$"
+          },
+          "date": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "decision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "stakeholders",
+    "class_coverage",
+    "open_issues",
+    "decisions_log"
+  ],
+  "additionalProperties": false
+}

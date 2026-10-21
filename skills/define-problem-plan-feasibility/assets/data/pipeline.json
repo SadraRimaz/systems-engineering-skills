@@ -1,0 +1,36 @@
+{
+  "stages": [
+    {
+      "id": "define-problem",
+      "title": "Requirements and Design Problem Definition",
+      "skills": [
+        {"skill": "define-problem-scope-concept", "title": "Scope System Concept", "artifact": "concept-brief", "upstream": []},
+        {"skill": "define-problem-identify-stakeholders", "title": "Identify Stakeholders", "artifact": "stakeholders", "upstream": ["concept-brief"]},
+        {"skill": "define-problem-define-lifecycle", "title": "Define System Lifecycle", "artifact": "lifecycle", "upstream": ["concept-brief", "stakeholders"]},
+        {"skill": "define-problem-develop-scenarios", "title": "Develop Operational Scenarios", "artifact": "scenarios", "upstream": ["concept-brief", "stakeholders", "lifecycle"]},
+        {"skill": "define-problem-define-boundary", "title": "Define System Boundary", "artifact": "boundary", "upstream": ["concept-brief", "lifecycle", "scenarios"]},
+        {"skill": "define-problem-build-objectives", "title": "Build Objectives Hierarchy", "artifact": "objectives", "upstream": ["stakeholders", "lifecycle", "scenarios"]},
+        {"skill": "define-problem-write-requirements", "title": "Write Stakeholder Requirements", "artifact": "requirements", "upstream": ["stakeholders", "lifecycle", "scenarios", "boundary", "objectives"]},
+        {"skill": "define-problem-plan-feasibility", "title": "Plan Feasibility Analysis", "artifact": "feasibility-plan", "upstream": ["requirements", "scenarios"]},
+        {"skill": "define-problem-revise-from-feedback", "title": "Revise from Stakeholder Feedback", "artifact": "feedback", "upstream": []}
+      ]
+    }
+  ],
+  "id_prefixes": {
+    "STK": "stakeholders",
+    "LC": "lifecycle",
+    "SCN": "scenarios",
+    "MSN": "scenarios",
+    "EXT": "boundary",
+    "IF": "boundary",
+    "CTL": "boundary",
+    "BD": "boundary",
+    "OBJ": "objectives",
+    "REQ": "requirements",
+    "FQ": "feasibility-plan",
+    "AN": "feasibility-plan",
+    "PT": "feasibility-plan",
+    "UT": "feasibility-plan",
+    "ES": "feasibility-plan"
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Stakeholder Feedback Log",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^FB-\\d{3}$"
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "received": {
+            "type": "string",
+            "minLength": 1
+          },
+          "from_stakeholder_id": {
+            "type": "string"
+          },
+          "raw_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "clarification",
+              "change_request",
+              "new_requirement",
+              "conflict",
+              "approval",
+              "rejection"
+            ]
+          },
+          "targets": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "disposition": {
+            "enum": [
+              "accepted",
+              "rejected",
+              "deferred",
+              "needs_clarification"
+            ]
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "applied_in": {
+            "type": "object",
+            "properties": {
+              "artifact": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "artifact",
+              "version"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "received",
+          "raw_text",
+          "kind",
+          "targets",
+          "disposition"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "stakeholder_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "scope": {
+            "enum": [
+              "acceptance_requirements",
+              "all"
+            ]
+          },
+          "decision": {
+            "enum": [
+              "approved",
+              "disapproved"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "minLength": 1
+          },
+          "conditions": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "stakeholder_ids",
+          "scope",
+          "decision",
+          "date"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^ISS-\\d{3}$"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "TBD",
+              "TBR",
+              "question"
+            ]
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "about": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "kind",
+          "owner",
+          "status"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "decisions_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^DEC-\\d{3}$"
+          },
+          "date": {
+            "type": "string"
+          },
+          "decision": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "date",
+          "decision",
+          "rationale"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "items",
+    "approvals",
+    "open_issues",
+    "decisions_log"
+  ],
+  "additionalProperties": false
+}
