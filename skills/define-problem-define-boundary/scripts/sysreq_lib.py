@@ -9,10 +9,36 @@ import argparse
 import datetime
 import html
 import json
+import os
+import subprocess
 import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+
+
+def _use_installed_venv():
+    """Re-run the calling script with the virtual environment the installer created.
+
+    The installer writes the venv's Python path to <skill>/.venv-python. Without that
+    file (for example when running from the repository) the current Python is used.
+    Set SYSREQ_NO_VENV=1 to skip this.
+    """
+    main_file = getattr(sys.modules.get("__main__"), "__file__", None)
+    pointer = HERE.parent / ".venv-python"
+    if not main_file or os.environ.get("SYSREQ_NO_VENV") or os.environ.get("SYSREQ_IN_VENV") or not pointer.is_file():
+        return
+    py = pointer.read_text(encoding="utf-8").strip()
+    if not py or not Path(py).is_file():
+        sys.stderr.write(f"warning: virtual environment not found at {py or pointer}; run install.py again. Using the current Python.\n")
+        return
+    if os.path.realpath(sys.prefix) == os.path.realpath(str(Path(py).parent.parent)):
+        return
+    env = dict(os.environ, SYSREQ_IN_VENV="1")
+    sys.exit(subprocess.call([py] + sys.argv, env=env))
+
+
+_use_installed_venv()
 
 
 def _find_base():

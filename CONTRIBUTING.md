@@ -30,6 +30,7 @@ Add a new stage entry to `shared/data/pipeline.json`, use a new skill prefix, an
 - Never prompt. Take input from flags and files, write JSON to stdout and diagnostics to stderr.
 - Provide `--help`, clear error messages that say what to do next, and these exit codes: 0 ok, 1 invalid content, 2 usage or missing file, 3 not ready.
 - Standard library only, plus the packages in `shared/scripts/requirements.txt`.
+- Import `sysreq_lib` before any third-party package: it re-runs the script in the installer's virtual environment (the skill's `.venv-python` file points to it; `SYSREQ_NO_VENV=1` disables this).
 - Visual generators write one self-contained HTML file and support `--check-ready`.
 
 ## Before you commit

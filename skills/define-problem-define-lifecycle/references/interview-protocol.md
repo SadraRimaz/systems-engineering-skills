@@ -63,6 +63,6 @@ Each skill lists the visuals it can generate. For each one, in this order:
 ## Conventions
 
 - Run scripts from this skill's folder. Resolve the workspace to an absolute path first, because the working directory may differ. Use `python` where `python3` does not exist.
-- If a script reports a missing package, run `pip install -r scripts/requirements.txt`.
+- Scripts run in the virtual environment the installer created; they find it through `.venv-python` in the skill folder, so call them with plain `python3` or `python`. Never install packages into the system Python. If a script reports a missing package or an environment warning, ask the user to run `python install.py` again from the repository.
 - Scripts never prompt. They read files and flags and write JSON to stdout, diagnostics to stderr.
 - Exit codes: 0 ok, 1 invalid content, 2 usage or missing file, 3 not ready.

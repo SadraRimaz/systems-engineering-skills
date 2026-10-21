@@ -14,7 +14,9 @@ cd systems-engineering-skills
 python install.py
 ```
 
-The installer asks which agent you use and whether to install for one project or for your whole user account, then copies the skills to the right place for that agent. Run it again after updating the repository.
+The installer asks which agent you use and whether to install for one project or for your whole user account, then copies the skills to the right place for that agent. It also creates a virtual environment (`.sysreq-venv`, next to the skills folder), installs the dependencies into it, and links every skill to it, so the skills use that environment automatically and nothing is installed into your system Python. Run it again after updating the repository.
+
+Options: `--no-venv` skips the environment, and `--venv-dir <folder>` puts it elsewhere. Run `python install.py --help` for all options.
 
 ## Use
 
@@ -116,8 +118,8 @@ The JSON files are the single source of truth. Changing an earlier artifact mark
 
 ## Troubleshooting
 
-- **"jsonschema" is missing:** `python -m pip install -r shared/scripts/requirements.txt`.
-- **`python3` not found (Windows):** the skills fall back to `python`.
+- **A script reports a missing package or environment:** run `python install.py` again. It recreates the virtual environment and relinks the skills. On Debian or Ubuntu, install `python3-venv` first.
+- **`python3` not found (Windows):** the skills use `python`; either way the virtual environment is used.
 - **Skills not listed in the agent:** restart the agent after installing, and check you installed for the right agent and scope.
 
 ## Contributing and license

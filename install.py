@@ -11,9 +11,12 @@ Or skip the prompts:
 
 Agents: claude (Claude Code), codex (Codex), antigravity (Antigravity), opencode (OpenCode).
 Scope: project (skills live in one project) or global (skills available everywhere for your user).
-Needs only Python 3.8+. The skills' helper scripts need the 'jsonschema' package; this installer offers to install it.
+Needs only Python 3.8+ (with the standard 'venv' module). The installer creates a virtual environment next to the skills
+folder (for example .claude/.sysreq-venv), installs the helper-script requirements into it, and points every installed
+skill at it, so the skills always run with the right packages. Use --no-venv to skip this.
 """
 import argparse
+import os
 import shutil
 import subprocess
 import sys
@@ -78,12 +81,29 @@ def copy_skills(dest, assume_yes):
     return names
 
 
-def deps_ok():
+def venv_python(venv):
+    return venv / ("Scripts" if os.name == "nt" else "bin") / ("python.exe" if os.name == "nt" else "python")
+
+
+def make_venv(venv):
+    """Create the virtual environment (if needed) and install the requirements. Returns its Python or None."""
+    py = venv_python(venv)
     try:
-        import jsonschema  # noqa: F401
-        return True
-    except ImportError:
-        return False
+        if not py.is_file():
+            print(f"Creating virtual environment in {venv}")
+            subprocess.check_call([sys.executable, "-m", "venv", str(venv)])
+        print("Installing requirements into it")
+        subprocess.check_call([str(py), "-m", "pip", "install", "--quiet", "--disable-pip-version-check", "-r", str(ROOT / "shared" / "scripts" / "requirements.txt")])
+        return py
+    except (subprocess.CalledProcessError, OSError) as exc:
+        print(f"warning: could not set up the virtual environment ({exc}).")
+        print("  On Debian/Ubuntu install the 'python3-venv' package, then run this installer again.")
+        return None
+
+
+def link_venv(dest, names, py):
+    for n in names:
+        (dest / n / ".venv-python").write_text(str(py) + "\n", encoding="utf-8")
 
 
 def main():
@@ -92,7 +112,8 @@ def main():
     ap.add_argument("--scope", choices=["project", "global"])
     ap.add_argument("--project-dir", help="project folder for --scope project (default: current folder)")
     ap.add_argument("--yes", action="store_true", help="do not ask for confirmation (replace existing skills)")
-    ap.add_argument("--install-deps", action="store_true", help="pip install the helper-script requirements")
+    ap.add_argument("--no-venv", action="store_true", help="do not create a virtual environment (skills then use the system Python)")
+    ap.add_argument("--venv-dir", help="use this folder for the virtual environment (default: .sysreq-venv beside the skills folder)")
     a = ap.parse_args()
     interactive = sys.stdin.isatty()
     if not SKILLS.is_dir():
@@ -110,17 +131,19 @@ def main():
     installed = []
     for dest in targets(agent, scope, project_dir):
         names = copy_skills(dest, a.yes)
-        if names:
-            print(f"Installed {len(names)} skills into {dest}")
-            installed = names
+        if not names:
+            continue
+        print(f"Installed {len(names)} skills into {dest}")
+        installed = names
+        if not a.no_venv:
+            venv = Path(a.venv_dir).expanduser().resolve() if a.venv_dir else dest.parent / ".sysreq-venv"
+            py = make_venv(venv)
+            if py:
+                link_venv(dest, names, py)
     if not installed:
         return
-    if not deps_ok():
-        want = a.install_deps or (interactive and not a.yes and ask_yes("The helper scripts need the 'jsonschema' package. Install it now with pip?", True))
-        if want:
-            subprocess.call([sys.executable, "-m", "pip", "install", "-r", str(ROOT / "shared" / "scripts" / "requirements.txt")])
-        else:
-            print(f"Later, run: {sys.executable} -m pip install -r shared/scripts/requirements.txt")
+    if a.no_venv:
+        print("No virtual environment created. Install the requirements yourself: pip install -r shared/scripts/requirements.txt")
     info = AGENTS[agent]
     print(f"\nDone. Open {info['label']} and start with:\n  " + info["use"].format(name=FIRST))
     print("Then follow the order in README.md.")
